@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e1baff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .logo {
+            width: 50%;
+            max-width: 400px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .date {
+            font-family: "Helvetica", sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #161617;
+            margin-top: 20px;
+            animation: slideInUp 1.5s ease-in-out;
+        }
+
+        .photos_button {
+            background-color: #161617;
+            color: #cecece;
+            font-family: "Helvetica", sans-serif;
+            outline: none;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 5px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-links {
+            margin-top: 20px;
+        }
+
+        .modal-link {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #161617;
+            text-decoration: none;
+            font-family: "Helvetica", sans-serif;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .modal-link:hover {
+            background-color: #cecece;
+            color: #161617;
+            transform: scale(1.1);
+        }
+
+        .close-button {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 20px;
+            background-color: red;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .logo {
+                width: 80%;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+   <img src="./assets/logo.png" alt="anamika_vs_kishan" class="logo"/>
+   <h1 class="date">27 · 01 · 2024</h1>
+   <button class="photos_button" onclick="openModal()">VIEW PHOTOS</button>
+
+   <div class="modal" id="myModal">
+      <div class="modal-content">
+         <span class="close-button" onclick="closeModal()">×</span>
+         <div class="modal-links">
+            <a href="#" class="modal-link">HAWAN + MEHANDI</a>
+            <a href="#" class="modal-link">DEVPUJI</a>
+            <a href="#" class="modal-link">HALDI</a>
+            <a href="#" class="modal-link">BAARAT</a>
+            <a href="#" class="modal-link">SUBH VIVAH</a>
+         </div>
+      </div>
+   </div>
+
+   <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>
